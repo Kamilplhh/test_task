@@ -18,7 +18,7 @@ class Currencies
             foreach ($objects as $object){
                 $name = ($object['currency']);
                 $code = ($object['code']);
-                $rate = round(($object['mid']),2);
+                $rate = ($object['mid']);
                 $date = date("Y-m-d");
                 
                 $check = $this->pdo->prepare("SELECT * FROM currencies WHERE currency_code=:code");
@@ -38,15 +38,25 @@ class Currencies
         }
     }
 
-    function Test()
+    function GetCurrencies()
     {
-        $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $this->pdo->query("SELECT * FROM test");
+        $stmt = $this->pdo->query("SELECT * FROM currencies");
 
         while ($row = $stmt->fetch()) {
-            echo $row['dsc']."<br />\n";
+            echo "<tr><th>" .$row['name']. "</th>";
+            echo "<th>" .$row['currency_code']. "</th>";
+            echo "<th>" .$row['exchange_rate']. "</th>";
+            echo "<th>" .$row['date']. "</th></tr>";
         }
     }
 
+    function GetSelectorValues()
+    {
+        $stmt = $this->pdo->query("SELECT currency_code, exchange_rate FROM currencies");
+
+        while ($row = $stmt->fetch()) {
+            echo '<option value="' .$row['exchange_rate']. '">' .$row['currency_code']. '</option>';
+        }
+    }
 }
 
