@@ -1,7 +1,10 @@
 <?php
 
+require_once "History.php";
 require_once "Currencies.php";
 
-$database = new Currencies();
+$Currencies = new Currencies();
+$History = new History();
 
-echo $database->getApi();
+echo $Currencies->Test();
+echo $History->Testhistory();
