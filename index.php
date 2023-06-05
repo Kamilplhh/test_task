@@ -1,7 +1,7 @@
 <?php
 
-require_once "Database.php";
+require_once "Currencies.php";
 
-$database = new Database();
+$database = new Currencies();
 
-echo $database->Test();
+echo $database->getApi();
