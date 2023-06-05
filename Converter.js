@@ -24,18 +24,12 @@ function calculate(){
 
         $.ajax({
             type: 'POST',
-            url: 'History.php?Converter',
+            url: 'History.php',
             data: {
                 currency_in: inText,
                 currency_out: outText,
                 value_in: number,
                 value_out: result
-            },
-            success: function (data) {
-                handle.innerHTML = 'Response:\n' + data;
-            },
-            error: function (jqXHR) {
-                handle.innerText = 'Error: ' + jqXHR.status;
             }
         });
     }
