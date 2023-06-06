@@ -10,8 +10,6 @@ function calculate(){
     currencyOUT = currencyOUT.value;
     number = number.value;
 
-    var handle = document.getElementById('response');
-
     if(number < 1){
         alert('Insert a number');
     }
