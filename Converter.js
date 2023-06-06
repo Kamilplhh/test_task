@@ -15,7 +15,7 @@ function calculate(){
     }
     else {
         let result = ((number * currencyIN) / currencyOUT).toFixed(2);
-        alert('Result is: '+ result);
+        alert('The result is: '+ result);
 
         inText = inText + ' (' + currencyIN + ')';
         outText = outText + ' (' + currencyOUT + ')';

@@ -9,6 +9,7 @@ class Currencies
         $this->pdo = new PDO("mysql:host=localhost;dbname=testcurrency", "root", "");
     }
 
+    //Fetch api data into database
     function getApi()
     {
         $table = json_decode(file_get_contents($this->api_url), true);
@@ -38,6 +39,7 @@ class Currencies
         }
     }
 
+    //Print data as table rows
     function GetCurrencies()
     {
         $stmt = $this->pdo->query("SELECT * FROM currencies");
@@ -50,6 +52,7 @@ class Currencies
         }
     }
 
+    //Get selector option value from db
     function GetSelectorValues()
     {
         $stmt = $this->pdo->query("SELECT currency_code, exchange_rate FROM currencies");

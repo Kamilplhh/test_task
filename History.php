@@ -13,6 +13,7 @@ class History extends Currencies
         }
     }
 
+    //Make new history row using data from request
     function Converter()
     {
         $currency_in = $_POST['currency_in'];
@@ -27,6 +28,7 @@ class History extends Currencies
     }
 }
 
+//Get request from js file and call a function
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $History = new History();
     $History->Converter();

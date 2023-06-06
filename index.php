@@ -26,6 +26,7 @@ $History = new History();
 
 $Currencies->getApi();
 
+//All currencies table
 echo '<table>
     <tr>
         <th>Name</th>
@@ -35,9 +36,11 @@ echo '<table>
     </tr>';
 echo $Currencies->GetCurrencies() .'</table>';
 
+//Latest 10 rows of history table
 echo '<div class="history">';
 echo $History->GetHistory().'</div>';
 
+//Currency calculator
 echo '<div class="input">IN<select id="currencyIN">';
 echo $Currencies->GetSelectorValues();
 echo '</select><input type="number" id="number" required></input>';
